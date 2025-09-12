@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  // imports: [RouterOutlet], (It was throwing an error so I had to remove it to fix the issue)
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Assignment1');
+  studentName:string = 'Omar'
+  className:string = 'MAD 307'
 }
