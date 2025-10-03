@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import { BlogPost } from '../models/blog-post';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './blog-list-item.component.css'
 })
 export class BlogListItemComponent {
-
+  @Input() post?: BlogPost;
 }
