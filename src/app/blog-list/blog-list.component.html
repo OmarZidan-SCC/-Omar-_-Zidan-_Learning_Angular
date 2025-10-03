@@ -1,6 +1,3 @@
-<p>blog-list works!</p>
-<app-blog-list-item [post]="contentList[0]"></app-blog-list-item>
-<app-blog-list-item [post]="contentList[1]"></app-blog-list-item>
-<app-blog-list-item [post]="contentList[2]"></app-blog-list-item>
-<app-blog-list-item [post]="contentList[3]"></app-blog-list-item>
-
+<div *ngFor="let post of contentList; let i = index">
+  <app-blog-list-item [post]="post"></app-blog-list-item>
+</div>
