@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { BlogPost } from '../models/blog-post';
+import {BlogListItemComponent} from '../blog-list-item/blog-list-item.component';
 
 @Component({
   selector: 'app-blog-list',
-  imports: [],
+  imports: [
+    BlogListItemComponent
+  ],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })

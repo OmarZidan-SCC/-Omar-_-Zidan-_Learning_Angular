@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BlogPost} from './models/blog-post';
+import {BlogListComponent} from './blog-list/blog-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, BlogListComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
