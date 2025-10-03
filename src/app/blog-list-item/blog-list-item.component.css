@@ -1,0 +1,13 @@
+.blog-card {
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+:host-context(.blog-list) .blog-card:nth-child(odd) {
+  background-color: teal;
+}
+
+:host-context(.blog-list) .blog-card:nth-child(even) {
+  background-color: pink;
+}
