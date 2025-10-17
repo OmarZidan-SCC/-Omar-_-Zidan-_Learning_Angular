@@ -6,7 +6,7 @@ import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [BlogListComponent, NgForOf],
+  imports: [BlogListComponent, NgForOf, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

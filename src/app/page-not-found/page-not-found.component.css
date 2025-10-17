@@ -1,0 +1,9 @@
+.page-not-found {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.page-not-found a {
+  color: blue;
+  text-decoration: underline;
+}

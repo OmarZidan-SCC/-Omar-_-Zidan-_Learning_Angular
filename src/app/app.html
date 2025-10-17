@@ -1,3 +1,16 @@
+
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/blog-posts" routerLinkActive="active">Blog Posts</a>
+    <a routerLink="/modify-item" routerLinkActive="active">Modify Item</a>
+  </nav>
+</div>
+
+<div class="container">
+  <!-- This is where the routed components will be displayed -->
+  <router-outlet></router-outlet>
+</div>
+
 <div class="container">
   <h2>Blog Posts</h2>
 <!--  <div *ngFor="let post of blogPostList" class="blog-card">-->

@@ -4,4 +4,5 @@ export interface BlogPost {
   content: string;
   author: string;
   published?: boolean;
+  imageUrl?: string;
 }
