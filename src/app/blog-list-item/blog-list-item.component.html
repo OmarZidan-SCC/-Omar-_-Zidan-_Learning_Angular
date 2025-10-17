@@ -1,10 +1,14 @@
-<div class="blog-card">
-  <h2>{{ post?.title }}</h2>
-  <img [ngSrc]="post?.imageUrl"
+<div class="blog-card" *ngIf="post">
+
+  <h2>{{ post.title }}</h2>
+
+  <img *ngIf="post.imageUrl"
+       [ngSrc]="post.imageUrl"
        width="400"
        height="250"
-       alt="A descriptive image for the blog post titled {{ post?.title }}">
-  <p>{{ post?.content }}</p>
-  <p>Author: {{ post?.author }}</p>
+       [alt]="'Image for ' + post.title">
+
+  <p>{{ post.content }}</p>
+  <p>Author: {{ post.author }}</p>
 
 </div>
