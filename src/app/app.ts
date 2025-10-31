@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { BlogPost} from './models/blog-post';
 import {BlogListComponent} from './blog-list/blog-list.component';
 import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [BlogListComponent, NgForOf, RouterOutlet],
+  imports: [BlogListComponent, NgForOf, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
