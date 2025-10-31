@@ -11,6 +11,7 @@ export const routes: Routes = [
   { path: '', redirectTo: '/blog-posts', pathMatch: 'full' },
   { path: 'blog-posts', component: BlogListComponent },
   { path: 'modify-list-item', component: ModifyListItemComponent },
+  { path: 'modify-list-item/:id', component: ModifyListItemComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

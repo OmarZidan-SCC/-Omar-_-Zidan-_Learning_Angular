@@ -1,3 +1,7 @@
 <div class="blog-list">
-  <app-blog-list-item *ngFor="let post of contentList" [post]="post"></app-blog-list-item>
+  <app-blog-list-item
+    *ngFor="let post of contentList"
+    [post]="post"
+    (deleteRequest)="handleDelete($event)">
+  </app-blog-list-item>
 </div>

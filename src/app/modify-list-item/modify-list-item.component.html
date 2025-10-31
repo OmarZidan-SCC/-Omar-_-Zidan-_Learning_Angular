@@ -1,1 +1,50 @@
-<p>modify-list-item works!</p>
+<div class="form-container">
+  <h2>{{ postToEdit ? 'Edit Blog Post' : 'Create New Blog Post' }}</h2>
+
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input id="id" type="number" formControlName="id">
+      <div *ngIf="blogForm.get('id')?.touched && blogForm.get('id')?.invalid" class="error">
+        ID is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+      <div *ngIf="blogForm.get('title')?.touched && blogForm.get('title')?.invalid" class="error">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input id="author" type="text" formControlName="author">
+      <div *ngIf="blogForm.get('author')?.touched && blogForm.get('author')?.invalid" class="error">
+        Author is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea id="content" formControlName="content" rows="5"></textarea>
+      <div *ngIf="blogForm.get('content')?.touched && blogForm.get('content')?.invalid" class="error">
+        Content is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="blogForm.invalid">
+        {{ postToEdit ? 'Update Post' : 'Add Post' }}
+      </button>
+      <button type="button" (click)="router.navigate(['/blog-posts'])">Cancel</button>
+    </div>
+  </form>
+</div>

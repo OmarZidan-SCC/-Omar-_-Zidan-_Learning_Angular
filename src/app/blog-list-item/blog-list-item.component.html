@@ -11,4 +11,9 @@
   <p>{{ post.content }}</p>
   <p>Author: {{ post.author }}</p>
 
+  <div class="card-actions">
+    <button (click)="editPost()">Edit</button>
+    <button (click)="deletePost()" class="delete-button">Delete</button>
+  </div>
+
 </div>

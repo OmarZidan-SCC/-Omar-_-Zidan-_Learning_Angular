@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { BlogPost } from '../models/blog-post';
 import { NgIf, NgOptimizedImage } from "@angular/common";
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -14,4 +15,22 @@ import { NgIf, NgOptimizedImage } from "@angular/common";
 })
 export class BlogListItemComponent {
   @Input() post?: BlogPost;
+
+  @Output() deleteRequest = new EventEmitter<number>();
+
+  constructor(private router: Router) {}
+
+  editPost(): void {
+    if (this.post) {
+
+      this.router.navigate(['/modify-list-item', this.post.id]);
+    }
+  }
+
+  deletePost(): void {
+    if (this.post) {
+
+      this.deleteRequest.emit(this.post.id);
+    }
+  }
 }
