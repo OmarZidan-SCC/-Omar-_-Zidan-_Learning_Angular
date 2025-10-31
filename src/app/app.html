@@ -1,26 +1,10 @@
-
 <div class="nav-bar">
   <nav>
     <a routerLink="/blog-posts" routerLinkActive="active">Blog Posts</a>
-    <a routerLink="/modify-item" routerLinkActive="active">Modify Item</a>
+    <a routerLink="/modify-list-item" routerLinkActive="active">Modify Item</a>
   </nav>
 </div>
 
 <div class="container">
-  <!-- This is where the routed components will be displayed -->
   <router-outlet></router-outlet>
 </div>
-
-<!--<div class="container">-->
-<!--  <h2>Blog Posts</h2>-->
-<!--&lt;!&ndash;  <div *ngFor="let post of blogPostList" class="blog-card">&ndash;&gt;-->
-<!--&lt;!&ndash;    <h3>{{ post.title }}</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>{{ post.content }}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>Author: {{ post.author }}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>Published: {{ post.published ? 'Yes' : 'No' }}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <button (click)="togglePublished(post)" class="toggle-button">&ndash;&gt;-->
-<!--&lt;!&ndash;      Toggle Published&ndash;&gt;-->
-<!--&lt;!&ndash;    </button>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-<!--  <app-blog-list></app-blog-list>-->
-<!--</div>-->

@@ -69,6 +69,23 @@ export class ModifyListItemComponent implements OnInit {
       }
 
       this.router.navigate(['/blog-posts']);
+
+      this.blogForm.reset();
+
+    });
+    this.blogForm = this.fb.group({
+      id: ['', [
+        Validators.required,
+        Validators.min(1), // ID must be a positive number
+        Validators.pattern(/^[0-9]+$/) // ID must only be digits
+      ]],
+      title: ['', [
+        Validators.required,
+        Validators.pattern(/^[^!#?]+$/) // Title cannot contain !, #, or ?
+      ]],
+      content: ['', Validators.required],
+      author: ['', Validators.required],
+      imageUrl: ['']
     });
   }
 
