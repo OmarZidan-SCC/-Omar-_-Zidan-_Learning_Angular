@@ -8,85 +8,73 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf
-  ],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
 export class ModifyListItemComponent implements OnInit {
-
   blogForm: FormGroup;
-  postToEdit?: BlogPost;
+  error: string | null = null;
+
+
+  isEditing: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private blogService: BlogService,
-    protected router: Router,
+    private router: Router,
     private route: ActivatedRoute
   ) {
-
     this.blogForm = this.fb.group({
-      id: ['', Validators.required],
+      id: [null],
       title: ['', Validators.required],
       content: ['', Validators.required],
       author: ['', Validators.required],
-      // Ig it would be a good add to give option to add a picture :)
       imageUrl: ['']
-
     });
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.blogService.getPostById(+id).subscribe(post => {
-        if (post) {
-
-          this.postToEdit = post;
-          this.blogForm.patchValue(post);
-
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      // If an ID exists in the URL, we set isEditing to true.
+      this.isEditing = true;
+      this.blogService.getPostById(+idParam).subscribe({
+        next: post => {
+          if (post) {
+            this.blogForm.patchValue(post);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching blog post';
+          console.error('Error fetching post:', err);
         }
       });
     }
   }
 
   onSubmit(): void {
-    if (this.blogForm.invalid) {
-      return;
-    }
+    if (this.blogForm.valid) {
+      const post: BlogPost = this.blogForm.value;
 
-    const formValue: BlogPost = this.blogForm.value;
+      if (this.isEditing) {
 
-    this.blogService.getPostById(formValue.id).subscribe(existingPost => {
-      if (existingPost) {
-
-        this.blogService.updatePost(formValue);
+        this.blogService.updatePost(post).subscribe(() => this.router.navigate(['/blog-posts']));
       } else {
 
-        this.blogService.addPost(formValue);
+        this.blogService.addPost(post).subscribe(() => this.router.navigate(['/blog-posts']));
       }
-
-      this.router.navigate(['/blog-posts']);
-
-      this.blogForm.reset();
-
-    });
-    this.blogForm = this.fb.group({
-      id: ['', [
-        Validators.required,
-        Validators.min(1), // ID must be a positive number
-        Validators.pattern(/^[0-9]+$/) // ID must only be digits
-      ]],
-      title: ['', [
-        Validators.required,
-        Validators.pattern(/^[^!#?]+$/) // Title cannot contain !, #, or ?
-      ]],
-      content: ['', Validators.required],
-      author: ['', Validators.required],
-      imageUrl: ['']
-    });
+    }
   }
 
+  onDelete(): void {
+    const id = this.blogForm.value.id;
+    if (id) {
+      this.blogService.deletePost(id).subscribe(() => this.router.navigate(['/blog-posts']));
+    }
+  }
+
+  navigateToBlogList(): void {
+    this.router.navigate(['/blog-posts']);
+  }
 }

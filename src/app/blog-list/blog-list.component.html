@@ -1,3 +1,7 @@
+<div *ngIf="error" class="error-message">
+  {{ error }}
+</div>
+
 <div class="blog-list">
   <app-blog-list-item
     *ngFor="let post of contentList"

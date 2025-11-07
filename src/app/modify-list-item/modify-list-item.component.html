@@ -1,31 +1,17 @@
 <div class="form-container">
-  <h2>{{ postToEdit ? 'Edit Blog Post' : 'Create New Blog Post' }}</h2>
+
+  <h2>{{ isEditing ? 'Edit Blog Post' : 'Create New Blog Post' }}</h2>
 
   <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="id">ID</label>
       <input id="id" type="number" formControlName="id">
-      <div *ngIf="blogForm.get('id')?.touched && blogForm.get('id')?.hasError('required')" class="error">
-        ID is required.
-      </div>
-      <div *ngIf="blogForm.get('id')?.touched && blogForm.get('id')?.hasError('min')" class="error">
-        ID must be a positive number.
-      </div>
-      <div *ngIf="blogForm.get('id')?.touched && blogForm.get('id')?.hasError('pattern')" class="error">
-        ID can only contain numbers.
-      </div>
     </div>
 
     <div class="form-group">
       <label for="title">Title</label>
       <input id="title" type="text" formControlName="title">
-      <div *ngIf="blogForm.get('title')?.touched && blogForm.get('title')?.hasError('required')" class="error">
-        Title is required.
-      </div>
-      <div *ngIf="blogForm.get('title')?.touched && blogForm.get('title')?.hasError('pattern')" class="error">
-        Title cannot contain !, #, or ?.
-      </div>
     </div>
 
     <div class="form-group">
@@ -51,9 +37,15 @@
 
     <div class="form-actions">
       <button type="submit" [disabled]="blogForm.invalid">
-        {{ postToEdit ? 'Update Post' : 'Add Post' }}
+        {{ isEditing ? 'Update Post' : 'Add Post' }}
       </button>
-      <button type="button" (click)="router.navigate(['/blog-posts'])">Cancel</button>
+
+      <button type="button" (click)="onDelete()">Delete</button>
+
+      <button type="button" (click)="navigateToBlogList()">Back to List</button>
     </div>
   </form>
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
 </div>
