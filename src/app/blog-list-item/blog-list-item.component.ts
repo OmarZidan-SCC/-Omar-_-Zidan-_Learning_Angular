@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { BlogPost } from '../models/blog-post';
 import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import { Router} from '@angular/router';
+import {BylinePipe} from '../pipes/byline.pipe';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -11,7 +12,8 @@ import { Router} from '@angular/router';
     NgOptimizedImage,
     UpperCasePipe,
     DatePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    BylinePipe
   ],
   templateUrl: './blog-list-item.component.html',
   styleUrl: './blog-list-item.component.css'

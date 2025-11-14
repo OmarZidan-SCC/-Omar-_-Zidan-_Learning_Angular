@@ -1,6 +1,6 @@
 <div class="blog-card" *ngIf="post">
 
-  <h2>{{ post.title }}</h2>
+  <h2>{{ post | byline }}</h2>
 
   <img *ngIf="post.imageUrl"
        [ngSrc]="post.imageUrl"
