@@ -7,3 +7,51 @@
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+
+.form-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+button {
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 8px;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+  color: #0056b3;
+}
