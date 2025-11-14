@@ -11,6 +11,10 @@
   <p>{{ post.content }}</p>
   <p>Author: {{ post.author }}</p>
 
+  <p>Author: {{ post.author | uppercase }}</p>
+  <p>Published: {{ post.publishDate | date:'fullDate' }}</p>
+  <p>Sponsorship: {{ post.sponsorship | currency:'USD':'symbol':'1.2-2' }}</p>
+
   <div class="card-actions">
     <button (click)="editPost()">Edit</button>
     <button (click)="deletePost()" class="delete-button">Delete</button>

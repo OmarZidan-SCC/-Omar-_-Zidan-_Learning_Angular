@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { BlogPost } from '../models/blog-post';
-import { NgIf, NgOptimizedImage } from "@angular/common";
+import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, UpperCasePipe} from "@angular/common";
 import { Router} from '@angular/router';
 
 @Component({
@@ -8,7 +8,10 @@ import { Router} from '@angular/router';
   standalone: true,
   imports: [
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe
   ],
   templateUrl: './blog-list-item.component.html',
   styleUrl: './blog-list-item.component.css'

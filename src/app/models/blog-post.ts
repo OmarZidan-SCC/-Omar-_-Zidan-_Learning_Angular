@@ -5,4 +5,7 @@ export interface BlogPost {
   author: string;
   published?: boolean;
   imageUrl?: string;
+
+  publishDate: Date;
+  sponsorship: number;
 }
