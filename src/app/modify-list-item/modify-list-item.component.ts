@@ -4,11 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../services/blog.service';
 import { BlogPost } from '../models/blog-post';
 import { NgIf } from '@angular/common';
+import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, HighlightOnFocusDirective],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })
