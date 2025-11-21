@@ -11,7 +11,8 @@
   <p>{{ post.content }}</p>
   <p>Author: {{ post.author }}</p>
 
-  <p>Author: {{ post.author | uppercase }}</p>
+  <p>Author: {{ post.author | uppercase }}<span class="info-icon" [appShowDetailsOnHover]="'Published: ' + (post.publishDate | date:'long')">ⓘ</span>
+  </p>
   <p>Published: {{ post.publishDate | date:'fullDate' }}</p>
   <p>
     Sponsorship:
