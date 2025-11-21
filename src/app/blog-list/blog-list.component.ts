@@ -3,12 +3,10 @@ import { BlogPost } from '../models/blog-post';
 import { BlogListItemComponent } from '../blog-list-item/blog-list-item.component';
 import { NgForOf, NgIf } from '@angular/common';
 import { BlogService } from '../services/blog.service';
-import { RouterLink } from '@angular/router';
-
 @Component({
   selector: 'app-blog-list',
   standalone: true,
-  imports: [BlogListItemComponent, NgForOf, NgIf, RouterLink],
+  imports: [BlogListItemComponent, NgForOf, NgIf],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })

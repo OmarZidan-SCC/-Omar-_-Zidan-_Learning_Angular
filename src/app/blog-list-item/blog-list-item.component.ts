@@ -4,6 +4,7 @@ import {CurrencyPipe, DatePipe, NgIf, NgOptimizedImage, NgStyle, UpperCasePipe} 
 import { Router} from '@angular/router';
 import {BylinePipe} from '../pipes/byline.pipe';
 import {SponsorshipColorPipe} from '../pipes/sponsorship-color.pipe';
+import {HoverHighlightDirective} from '../directives/hover-highlight.directive';
 
 @Component({
   selector: 'app-blog-list-item',
@@ -16,7 +17,8 @@ import {SponsorshipColorPipe} from '../pipes/sponsorship-color.pipe';
     CurrencyPipe,
     BylinePipe,
     SponsorshipColorPipe,
-    NgStyle
+    NgStyle,
+    HoverHighlightDirective
   ],
   templateUrl: './blog-list-item.component.html',
   styleUrl: './blog-list-item.component.css'
