@@ -1,28 +1,24 @@
-<div class="blog-card" *ngIf="post" [appHoverHighlight]="'#c3cfde'">
+<mat-card class="blog-card" *ngIf="post">
+  <mat-card-header>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-subtitle>{{ post.author | uppercase }} | {{ post.publishDate | date:'mediumDate' }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="post.imageUrl" [alt]="'Image for ' + post.title">
+  <mat-card-content>
+    <p>{{ post.content }}</p>
+    <p>Sponsorship: <span>{{ post.sponsorship | currency:'USD' }}</span></p>
+  </mat-card-content>
 
-  <h2>{{ post | byline }}</h2>
 
-  <img *ngIf="post.imageUrl"
-       [ngSrc]="post.imageUrl"
-       width="400"
-       height="250"
-       [alt]="'Image for ' + post.title">
+  <mat-divider></mat-divider>
 
-  <p>{{ post.content }}</p>
-  <p>Author: {{ post.author }}</p>
+  <mat-card-actions align="end">
 
-  <p>Author: {{ post.author | uppercase }}<span class="info-icon" [appShowDetailsOnHover]="'Published: ' + (post.publishDate | date:'long')">ⓘ</span>
-  </p>
-  <p>Published: {{ post.publishDate | date:'fullDate' }}</p>
-  <p>
-    Sponsorship:
-    <span [ngStyle]="post.sponsorship | sponsorshipColor">
-    {{ post.sponsorship | currency:'USD':'symbol':'1.2-2' }}
-  </span>
-  </p>
-  <div class="card-actions">
-    <button (click)="editPost()">Edit</button>
-    <button (click)="deletePost()" class="delete-button">Delete</button>
-  </div>
-
-</div>
+    <button mat-icon-button (click)="editPost()" matTooltip="Edit Post">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="deletePost()" matTooltip="Delete Post">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

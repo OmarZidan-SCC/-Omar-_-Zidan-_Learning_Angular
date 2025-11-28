@@ -1,51 +1,32 @@
 <div class="form-container">
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="mat-form">
+    <h2>{{ isEditing ? 'Edit Blog Post' : 'Create New Blog Post' }}</h2>
 
-  <h2>{{ isEditing ? 'Edit Blog Post' : 'Create New Blog Post' }}</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" matTooltip="Enter the main title for your blog post.">
+    </mat-form-field>
 
-  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" matTooltip="The name of the person who wrote the post.">
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input id="id" type="number" formControlName="id" [appHighlightOnFocus]="'#b1d2f2'">
-    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Content</mat-label>
+      <textarea matInput formControlName="content" rows="5" matTooltip="Write the main body of your post here."></textarea>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input id="title" type="text" formControlName="title" [appHighlightOnFocus]="'#b1d2f2'">
-    </div>
-
-    <div class="form-group">
-      <label for="author">Author</label>
-      <input id="author" type="text" formControlName="author" [appHighlightOnFocus]="'#b1d2f2'">
-      <div *ngIf="blogForm.get('author')?.touched && blogForm.get('author')?.invalid" class="error">
-        Author is required.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="content">Content</label>
-      <textarea id="content" formControlName="content" rows="5" [appHighlightOnFocus]="'#b1d2f2'"></textarea>
-      <div *ngIf="blogForm.get('content')?.touched && blogForm.get('content')?.invalid" class="error">
-        Content is required.
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="imageUrl">Image URL</label>
-      <input id="imageUrl" type="text" formControlName="imageUrl">
-    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="imageUrl" matTooltip="An optional URL for a post image.">
+    </mat-form-field>
 
     <div class="form-actions">
-      <button type="submit" [disabled]="blogForm.invalid">
+      <button mat-raised-button color="primary" type="submit" [disabled]="blogForm.invalid">
         {{ isEditing ? 'Update Post' : 'Add Post' }}
       </button>
-
-      <button type="button" (click)="onDelete()">Delete</button>
-
-      <button type="button" (click)="navigateToBlogList()">Back to List</button>
+      <button mat-button type="button" (click)="navigateToBlogList()">Back to List</button>
     </div>
   </form>
-  <div *ngIf="error" class="error-message">
-    {{ error }}
-  </div>
 </div>

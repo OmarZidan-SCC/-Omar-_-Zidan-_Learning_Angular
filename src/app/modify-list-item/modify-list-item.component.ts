@@ -3,13 +3,16 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../services/blog.service';
 import { BlogPost } from '../models/blog-post';
-import { NgIf } from '@angular/common';
-import {HighlightOnFocusDirective} from '../directives/highlight-on-focus.directive';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatLabel } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, HighlightOnFocusDirective],
+  imports: [ReactiveFormsModule, MatTooltip, MatButton, MatInput, MatFormField, MatLabel],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
 })

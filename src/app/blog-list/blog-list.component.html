@@ -1,11 +1,25 @@
-<div *ngIf="error" class="error-message">
-  {{ error }}
-</div>
+<div class="container">
+  <h2 class="mat-h2">Blog Posts</h2>
 
-<div class="blog-list">
-  <app-blog-list-item
-    *ngFor="let post of contentList"
-    [post]="post"
-    (deleteRequest)="handleDelete($event)">
-  </app-blog-list-item>
+  <mat-divider></mat-divider>
+
+  <div *ngIf="!contentList.length && !error" class="spinner-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <div class="blog-list">
+    <app-blog-list-item
+      *ngFor="let post of contentList"
+      [post]="post"
+      (deleteRequest)="handleDelete($event)">
+    </app-blog-list-item>
+  </div>
+
+  <mat-card *ngIf="contentList.length === 0 && !error" class="empty-state">
+    <mat-card-content>
+      <p>No blog posts found. Why not create one?</p>
+    </mat-card-content>
+  </mat-card>
 </div>

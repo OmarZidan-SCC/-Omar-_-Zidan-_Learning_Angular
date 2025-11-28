@@ -1,9 +1,9 @@
-<div class="nav-bar">
-  <nav>
-    <a routerLink="/blog-posts" routerLinkActive="active">Blog Posts</a>
-    <a routerLink="/modify-list-item" routerLinkActive="active">Modify Item</a>
-  </nav>
-</div>
+<mat-toolbar color="primary">
+  <span>My Personal Blog</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/blog-posts" routerLinkActive="active-link">Blog Posts</a>
+  <a mat-button routerLink="/modify-list-item" routerLinkActive="active-link">Create Post</a>
+</mat-toolbar>
 
 <div class="container">
   <router-outlet></router-outlet>

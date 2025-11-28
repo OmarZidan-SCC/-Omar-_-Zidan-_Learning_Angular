@@ -19,3 +19,11 @@
 .nav-bar nav a.active {
   color: #007bff;
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a.active-link {
+  background: rgba(0,0,0,0.1);
+}

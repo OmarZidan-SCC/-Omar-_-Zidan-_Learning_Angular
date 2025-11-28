@@ -3,10 +3,13 @@ import { BlogPost } from '../models/blog-post';
 import { BlogListItemComponent } from '../blog-list-item/blog-list-item.component';
 import { NgForOf, NgIf } from '@angular/common';
 import { BlogService } from '../services/blog.service';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import {MatDivider} from '@angular/material/divider';
+import {MatCard, MatCardContent} from '@angular/material/card';
 @Component({
   selector: 'app-blog-list',
   standalone: true,
-  imports: [BlogListItemComponent, NgForOf, NgIf],
+  imports: [BlogListItemComponent, NgForOf, NgIf, MatProgressSpinner, MatDivider, MatCard, MatCardContent],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })
